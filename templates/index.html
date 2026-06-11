@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+        <section id="hero" class="flex flex-col p-5 bg-primary">
+            <div class="flex flex-col" id="hero-content">
+                <div class="text-group text-start">
+                    <p class="text-primary">Hi, I am</p>
+                    <h1 class="text-primary"> Pavel</h1>
+                    <p class="text-secondary">Front-end Developer</p>
+                </div>
+                <div class="btn-group flex">
+                    <div class="btn-secondary"><img src="./images/mail.svg" alt="mail"></div>
+                    <div class="btn-secondary"><img src="./images/github.svg" alt="github"></div>
+                    <div class="btn-secondary"><img src="./images/linkedin.svg" alt="linkedIn"></div>
+                </div>
+            </div>
+            <div class="slide-left skewX" id="slideInLeft">
+                <header class="main-header" aria-role="banner">
+                    <nav>
+                        <ul class="flex flex-start">
+                            <li><a href="#about-me">About Me</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#contact-me">Contact Me</a></li>
+                        </ul>
+                    </nav>
+                </header>
+                <div class="image"><canvas width="340" height="340" id="heroCanvas" src="./images/about-me.jpg"
+                        alt="my image"></canvas></div>
+            </div>
+        </section>
+        <section id="about-me" class="flex flex-col p-5 bg-secondary items-center">
+            <div class="btn btn-primary">About Me</div>
+            <div id="about-me-intro" class="flex flex-col items-center">
+
+                <div class="bg-primary">
+                    <p class="text-center">Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Eos amet iusto et harum
+                        maiores quod distinctio molestiae laboriosam veritatis
+                        fugiat praesentium,
+                        placeat architecto,
+                        quibusdam ducimus ex doloremque?</p>
+                </div>
+            </div>
+            <img class="separator" src="./images/separator.svg" alt="">
+            <div class="flex-group">
+                <div class="card">
+                    <img src="./images/design.png" alt="">
+                    <h2>Design</h2>
+                    <p>I can design the site based on your needs and suggestions. I can also design the site from
+                        scratch and consult you during the job.</p>
+                </div>
+                <div class="card">
+                    <img src="./images/development.png" alt="">
+                    <h2>Development</h2>
+                    <p>I can design the site based on your needs and suggestions. I can also design the site from
+                        scratch and consult you during the job.</p>
+                </div>
+                <div class="card">
+                    <img src="./images/maintenance.png" alt="">
+                    <h2>Maintenance</h2>
+                    <p>I can design the site based on your needs and suggestions. I can also design the site from
+                        scratch and consult you during the job.</p>
+                </div>
+
+            </div>
+            <div class="flex-group">
+
+            </div>
+            <img class="separator" src="./images/separator.svg" alt="">
+            <div class="btn btn-primary" id="skills">Skills</div>
+            <h2 class="s2-heading">Using now:</h2>
+            <div class="grid-group">
+
+                <div class="card">
+                    <img src="./images/html.svg" alt="">
+                    <h3>HTML6</h3>
+                </div>
+                <div class="card">
+                    <img src="./images/css.svg" alt="">
+                    <h3>CSS3</h3>
+                </div>
+                <div class="card">
+                    <img src="./images/sass.svg" alt="">
+                    <h3>SASS</h3>
+                </div>
+                <div class="card">
+                    <img src="./images/js.svg" alt="">
+                    <h3>JavaScript</h3>
+                </div>
+
+                <div class="card">
+                    <img src="./images/react.svg" alt="">
+                    <h3>React</h3>
+                </div>
+                <div class="card">
+                    <img src="./images/bootstrap.svg" alt="">
+                    <h3>Bootstrap</h3>
+                </div>
+                <div class="card">
+                    <img src="./images/git.svg" alt="">
+                    <h3>Git</h3>
+                </div>
+                <div class="card">
+                    <img src="./images/figma.svg" alt="">
+                    <h3>Figma</h3>
+                </div>
+            </div>
+            <h2 class="s2-heading">Learning:</h2>
+            <div class="grid-group">
+
+                <div class="card">
+                    <img src="./images/node.svg" alt="">
+                    <h3>NODEJS</h3>
+                </div>
+                <div class="card">
+                    <img src="./images/sql.svg" alt="">
+                    <h3>MySQL</h3>
+                </div>
+                <div class="card">
+                    <img src="./images/mongo.svg" alt="">
+                    <h3>MONGODB</h3>
+                </div>
+                <div class="card">
+                    <img src="./images/ts.png" alt="">
+                    <h3>TypeScript</h3>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio" class="flex flex-col p-5 bg-primary items-center">
+            <div class="btn btn-primary">Portfolio</div>
+            <div class="flex relative">
+                <div class="carousel flex">
+                    <img src="./images/P0.png" class="active">
+                    <img src="./images/P1.png">
+                    <img src="./images/P2.png">
+                </div>
+                <div class="btn-group absolute">
+                    <button class="btn-secondary" id="btn-prev">&lt;</button>
+                    <button class="btn-secondary" id="btn-next">&gt;</button>
+                </div>
+            </div>
+        </section>
+        <section id="contact-me" class="flex flex-col p-5 bg-secondary items-center">
+            <div class="btn btn-primary">Contact Me</div>
+            <form class="contact-form">
+                <input type="text" name="formName" id="form__name" placeholder="Enter your name*">
+                <input type="text" name="formEmail" id="form__email" placeholder="Enter your email*">
+                <input type="text" name="formPhone" id="form__phone" placeholder="Phone number">
+                <textarea name="message" id="form__message" placeholder="Message"></textarea>
+                <button class="btn-primary" type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer></footer>
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
