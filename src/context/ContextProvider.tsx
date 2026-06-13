@@ -5,6 +5,9 @@ export type ContextType = {
   decreaseIndex: () => void;
   images: string[];
   imageCanvasUrl: string;
+  isModalOpen: boolean;
+  openModal: () => void;
+  closeModal: () => void;
 };
 type ContextProviderProps = {
   children: ReactNode;
@@ -34,6 +37,13 @@ export function ContextProvider({ children }: ContextProviderProps) {
       setImageIndex(images.length - 1);
     }
   };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <Context.Provider
       value={{
@@ -42,6 +52,9 @@ export function ContextProvider({ children }: ContextProviderProps) {
         decreaseIndex,
         images,
         imageCanvasUrl,
+        isModalOpen,
+        closeModal,
+        openModal,
       }}
     >
       {children}

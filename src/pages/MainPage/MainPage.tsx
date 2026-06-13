@@ -1,8 +1,17 @@
 import "./MainPage.css";
 import { Canvas } from "../../components/Canvas";
 import { useMainContext } from "../../context/useMainContext";
+import { Header } from "../../components/Header/Header";
+import { Modal } from "../../components/Modal/Modal";
 export function MainPage() {
-  const { imageIndex, increaseIndex, decreaseIndex, images } = useMainContext();
+  const {
+    imageIndex,
+    increaseIndex,
+    decreaseIndex,
+    images,
+    openModal,
+    isModalOpen,
+  } = useMainContext();
 
   return (
     <main>
@@ -27,24 +36,7 @@ export function MainPage() {
         </div>
         <div className="container">
           <div className="slide-left skewX" id="slideInLeft">
-            <header className="main-header" aria-role="banner">
-              <nav>
-                <ul className="flex flex-start">
-                  <li>
-                    <a href="#about-me">About Me</a>
-                  </li>
-                  <li>
-                    <a href="#skills">Skills</a>
-                  </li>
-                  <li>
-                    <a href="#portfolio">Portfolio</a>
-                  </li>
-                  <li>
-                    <a href="#contact-me">Contact Me</a>
-                  </li>
-                </ul>
-              </nav>
-            </header>
+            <Header />
             <div className="image">
               <Canvas></Canvas>
             </div>
@@ -218,11 +210,19 @@ export function MainPage() {
             id="form__message"
             placeholder="Message"
           ></textarea>
-          <button className="btn-primary" type="submit">
+          <button
+            className="btn-primary"
+            type="submit"
+            onClick={(e) => {
+              e.preventDefault();
+              openModal();
+            }}
+          >
             Submit
           </button>
         </form>
       </section>
+      {isModalOpen && <Modal />}
     </main>
   );
 }

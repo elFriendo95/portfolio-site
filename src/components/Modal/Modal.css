@@ -1,0 +1,46 @@
+/* Modal Overlay - full screen background */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* ensures modal appears above other content */
+}
+
+/* Modal Content - the actual modal box */
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  min-width: 300px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: fadeIn 0.3s ease; /* subtle entrance animation */
+}
+
+/* Close button positioning (if you want to style its position) */
+#close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Optional: fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
