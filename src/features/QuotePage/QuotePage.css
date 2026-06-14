@@ -1,0 +1,16 @@
+.a-link {
+  text-decoration: none;
+  color: unset;
+}
+.btn-secondary {
+  width: auto;
+  height: 52px;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: black;
+  border: 1px solid #3b82f6;
+}
+.btn-secondary:hover {
+  color: black;
+}

@@ -1,11 +1,15 @@
 import "./App.css";
-import { MainPage } from "./pages/MainPage/MainPage.tsx";
-
+import { BlogPage } from "./features/BlogPage/BlogPage.tsx";
+import { MainPage } from "./features/MainPage/MainPage.tsx";
+import { Routes, Route } from "react-router-dom";
+import { QuotePage } from "./features/QuotePage/QuotePage.tsx";
 function App() {
   return (
-    <>
-      <MainPage />
-    </>
+    <Routes>
+      <Route path="/" element={<MainPage />} />
+      <Route path="/blog" element={<BlogPage />} />
+      <Route path="/blog/:id" element={<QuotePage />} />
+    </Routes>
   );
 }
 

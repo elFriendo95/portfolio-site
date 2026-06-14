@@ -1,0 +1,611 @@
+/* ==========================================================================
+   CSS Custom Properties & Reset
+   ========================================================================== */
+
+:root {
+  --bg-primary: white;
+  --bg-secondary: #1a1a2e;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    "Segoe UI",
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: #fefefe;
+  color: #1a1a2e;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+/* Display & Flex */
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-start {
+  justify-content: flex-start;
+}
+.items-center {
+  align-items: center;
+}
+
+/* Spacing */
+.p-5 {
+  padding: 2rem;
+}
+
+/* Backgrounds */
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+/* Text Alignment */
+.text-start {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+
+/* Positioning */
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 560px;
+  width: 1440px;
+  overflow-x: hidden;
+}
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+.text-primary {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.text-group {
+  margin-bottom: 1.5rem;
+}
+
+.text-group p.text-primary {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+h1.text-primary {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0.25rem 0 0.5rem;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.text-secondary {
+  font-size: 1.3rem;
+  color: #475569;
+  font-weight: 500;
+  border-left: 4px solid #3b82f6;
+  padding-left: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.s2-heading {
+  color: var(--bg-primary);
+  font-size: 3rem;
+  margin: 3rem 0;
+  align-self: flex-start;
+}
+
+/* ==========================================================================
+   Button Styles
+   ========================================================================== */
+
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn-primary {
+  width: clamp(15rem, 250px, 20rem);
+  background: white;
+  padding: 1rem 2rem;
+  font-weight: 700;
+  transition: outline 1s ease-in;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.btn-primary:hover {
+  outline: solid 6px #3b82f6;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: white;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #e2e8f0;
+}
+
+.btn-secondary img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.15);
+  border-color: #3b82f6;
+}
+
+.btn-secondary:hover img {
+  transform: scale(1.1);
+}
+
+/* Remove default button styles for divs with class starting "btn-" */
+div[class^="btn-"] {
+  user-select: none;
+}
+
+/* ==========================================================================
+   Components: Cards, Groups, Separators
+   ========================================================================== */
+
+.flex-group {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.card {
+  position: relative;
+  background-color: var(--bg-primary);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: clamp(20rem, 250px, 30rem);
+  padding: 2rem;
+  transition: transform 0.5s ease-in;
+}
+
+.card > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  aspect-ratio: 1;
+  filter: brightness(0);
+}
+
+.card:hover {
+  transform: scale(1.04);
+}
+
+.grid-group {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  width: 100%;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.grid-group .card {
+  width: clamp(7rem, 100px, 10rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  padding-top: 1rem;
+}
+
+.grid-group .card > img {
+  position: unset;
+  filter: unset;
+  width: 100px;
+}
+
+.separator {
+  width: clamp(10rem, 200px, 15rem);
+  margin: 3rem 0;
+  filter: invert(100%);
+  align-self: center;
+}
+
+/* ==========================================================================
+   Transforms & Animations
+   ========================================================================== */
+
+.skewX {
+  transform: skewX(-15deg);
+}
+
+.skewX > * {
+  transform: skewX(15deg);
+}
+
+.slide-left {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  animation: slideInLeft 1.7s forwards;
+  transform-origin: left center;
+}
+
+#slideInLeft {
+  width: 75%;
+  height: 100%;
+  background: #3b82f6;
+}
+
+/* ==========================================================================
+   Keyframes
+   ========================================================================== */
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    right: -100%;
+  }
+  100% {
+    right: -30%;
+    opacity: 1;
+  }
+}
+
+@keyframes unblur {
+  0% {
+    filter: blur(16px);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+#hero {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  gap: 2rem;
+  align-items: center;
+  padding-bottom: 0;
+}
+
+#hero-content {
+  margin-top: 10rem;
+}
+
+/* Hero image */
+.image {
+  margin-top: 1rem;
+  margin-left: -25rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* .image img,
+.image canvas,
+.image-canvas {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  
+  background: #e2e8f0;
+  box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.2);
+  transition: scale 0.3s ease;
+  animation: unblur 1s ease-in;
+  transition: all 1s ease-in;
+} */
+.effect-wrapper {
+  display: flex;
+  background-image: url("../../assets/images/about-me.jpg");
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  max-width: 340px;
+  border-radius: 36px;
+  overflow: hidden;
+}
+/* .image img:hover,
+.image canvas:hover {
+  transform: scale(1.02);
+} */
+
+/* Placeholder style for missing image */
+.image img[src=""] {
+  background: linear-gradient(145deg, #cbd5e1, #e2e8f0);
+  background-size: cover;
+  display: inline-block;
+  position: relative;
+}
+
+/* ==========================================================================
+   About Me Section
+   ========================================================================== */
+
+#about-me {
+  position: relative;
+}
+
+#about-me-intro {
+  margin-top: 2rem;
+}
+
+#about-me .bg-primary {
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+#about-me .p {
+  min-height: 4rem;
+}
+
+/* ==========================================================================
+   Portfolio Section
+   ========================================================================== */
+
+#portfolio .btn-group {
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 10rem;
+}
+.carousel {
+  position: relative;
+  width: 640px;
+  height: 400px; /* adjust to your image height */
+}
+
+.carousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel img.active {
+  opacity: 1;
+}
+/* ==========================================================================
+   Contact Me Section
+   ========================================================================== */
+
+.contact-form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: transparent;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #1f2937;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #9ca3af;
+  font-weight: normal;
+}
+
+.contact-form .btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  letter-spacing: 0.025em;
+  width: 100%;
+}
+
+.contact-form .btn-primary:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .btn-primary:active {
+  transform: translateY(0);
+}
+
+.contact-form .btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+}
+
+.contact-form input[type="text"] {
+  appearance: none;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media (min-width: 1440px) {
+  #hero {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 3rem 2rem;
+  }
+
+  #hero > .flex.flex-col:first-child {
+    flex: 1.2;
+  }
+
+  .skewX {
+    flex: 1;
+    margin-left: 1rem;
+  }
+
+  .image img {
+    max-width: 380px;
+  }
+}
+
+@media (min-width: 768px) {
+  #hero {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 3rem 2rem;
+  }
+
+  #hero > .flex.flex-col:first-child {
+    flex: 1.2;
+  }
+
+  .skewX {
+    flex: 1;
+    margin-left: 1rem;
+  }
+
+  .image img {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 767px) {
+  .p-5 {
+    padding: 1.5rem;
+  }
+
+  .slide-left.skewX {
+    margin-top: 2rem;
+  }
+
+  .main-header nav ul {
+    gap: 1.2rem;
+  }
+
+  .text-secondary {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-secondary {
+    width: 44px;
+    height: 44px;
+  }
+
+  .btn-secondary img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .main-header nav ul {
+    gap: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .main-header nav ul li a {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-form {
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .contact-form .btn-primary {
+    padding: 0.75rem 1.25rem;
+  }
+}

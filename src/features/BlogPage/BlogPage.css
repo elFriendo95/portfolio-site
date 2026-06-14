@@ -1,0 +1,43 @@
+.a-link {
+  text-decoration: none;
+  color: unset;
+}
+.btn-secondary {
+  width: auto;
+  height: 52px;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: black;
+  border: 1px solid #3b82f6;
+}
+.a-link:hover {
+  color: black;
+}
+.grid-group {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  width: 100%;
+  justify-content: space-around;
+  gap: 2rem;
+}
+.grid-group .card .a-link {
+  height: 250px;
+  width: 200px;
+  background: #3b82f6;
+  padding: 1rem;
+}
+.hamburger {
+  display: grid; /* always block/grid – never display:none */
+  overflow: hidden; /* hide content when collapsed */
+  max-height: 0; /* collapsed height */
+  opacity: 0; /* invisible when closed */
+  transition: all 2s ease; /* smooth animation */
+  /* remove position, top, left, transform – let it flow naturally */
+}
+
+.hamburger.hamburger-open {
+  max-height: fit-content; /* large enough to fit all content */
+  opacity: 1; /* visible */
+  /* no position changes, no top/left/transform overrides */
+}
