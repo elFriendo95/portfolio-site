@@ -1,18 +1,12 @@
 import { Link } from "react-router-dom";
 import "./BlogPage.css";
 import { useEffect, useRef, useState } from "react";
+import { useBlogQuotes } from "../../hooks/useBlogQuotes";
 export function BlogPage() {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
-  const [quotes, setQuotes] = useState([]);
+  const { quotes, loading, error } = useBlogQuotes();
   const menuRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("api/quotes");
-      const data = await response.json();
-      return data;
-    };
-    fetchData().then((q) => setQuotes(q));
-  }, []);
+
   useEffect(() => {
     if (!menuRef.current) return;
 
@@ -25,7 +19,7 @@ export function BlogPage() {
     } else {
       // Collapse
       menuRef.current.style.maxHeight = "0px";
-      menuRef.current.style.opacity = "0";
+      // menuRef.current.style.opacity = "0";
     }
   }, [hamburgerOpen, quotes]);
   return (
@@ -34,15 +28,14 @@ export function BlogPage() {
       <Link className="btn btn-secondary" to="/">
         Back to main
       </Link>
+
       <button
         className="btn btn-secondary"
-        onClick={() => {
-          if (hamburgerOpen) setHamburgerOpen(false);
-          else setHamburgerOpen(true);
-        }}
+        onClick={() => setHamburgerOpen((prev) => !prev)}
       >
         ☰
       </button>
+
       <div
         ref={menuRef}
         className="grid-group hamburger"
@@ -53,16 +46,14 @@ export function BlogPage() {
           opacity: 0,
         }}
       >
-        {quotes.map((quote: { id: number; text: string }) => {
-          // console.log(quote.id!);
-          return (
-            <div key={quote.id} className="card">
-              <Link className="a-link" to={`/blog/${String(quote.id)}`}>
-                {quote.text}
-              </Link>
-            </div>
-          );
-        })}
+        {quotes.map((quote) => (
+          <div key={quote.id} className="card">
+            <Link className="a-link" to={`/blog/${quote.id}`}>
+              {quote.text}
+            </Link>
+            <small>- {quote.author}</small>
+          </div>
+        ))}
       </div>
     </main>
   );
