@@ -1,5 +1,5 @@
 import { useModalContext } from "../../../context/ModalContext/useModalContext";
-
+import { Button, Form, Input } from "antd";
 export function ContactSection() {
   const { openModal } = useModalContext();
   return (
@@ -8,7 +8,7 @@ export function ContactSection() {
       className="flex flex-col p-5 bg-secondary items-center"
     >
       <div className="btn btn-primary">Contact Me</div>
-      <form className="contact-form">
+      {/* <form className="contact-form">
         <input
           type="text"
           name="formName"
@@ -42,7 +42,35 @@ export function ContactSection() {
         >
           Submit
         </button>
-      </form>
+      </form> */}
+      <Form
+        wrapperCol={{ span: 50 }}
+        layout="horizontal"
+        style={{ width: "100%" }}
+        className="contact-form"
+      >
+        <Form.Item>
+          <Input placeholder="Enter your name*" />
+        </Form.Item>
+        <Form.Item>
+          <Input placeholder="Enter your email*" />
+        </Form.Item>
+        <Form.Item>
+          <Input placeholder="Phone number" />
+        </Form.Item>
+        <Form.Item>
+          <Input.TextArea showCount maxLength={100}></Input.TextArea>
+        </Form.Item>
+        <Form.Item>
+          <Button
+            type="primary"
+            // className="btn-primary"
+            style={{ width: "100%" }}
+          >
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
     </section>
   );
 }

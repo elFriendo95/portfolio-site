@@ -2,6 +2,7 @@
   position: fixed;
   top: 50%;
   right: 3rem;
+  z-index: 1100;
 }
 .scrollspy-nav ul {
   list-style: none;
@@ -12,5 +13,5 @@
   transition: all 0.3s linear;
 }
 .scrollspy-nav a.active {
-  color: #3b82f6;
+  color: #3b9ff6;
 }

@@ -35,7 +35,7 @@ export function ScrollSpy({ sectionIds }: ScrollSpyProps) {
           return (
             <li key={id}>
               <a href={`#${id}`} className={id === activeId ? "active" : ""}>
-                {id.split("-").join(" ").toUpperCase()}
+                {/* {id.split("-").join(" ").toUpperCase()} */ "●"}
               </a>
             </li>
           );

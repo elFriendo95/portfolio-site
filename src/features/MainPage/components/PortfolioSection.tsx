@@ -58,6 +58,7 @@ export function PortfolioSection() {
             textJustify: "inter-character",
           }}
           className="carousel"
+          autoplay
         >
           {images.map((image) => {
             return (
