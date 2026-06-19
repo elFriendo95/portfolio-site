@@ -406,10 +406,10 @@ div[class^="btn-"] {
 .carousel {
   position: relative;
   width: 640px;
-  height: 400px; /* adjust to your image height */
+  height: auto; /* adjust to your image height */
 }
 
-.carousel img {
+/* .carousel img {
   position: absolute;
   top: 0;
   left: 0;
@@ -418,11 +418,11 @@ div[class^="btn-"] {
   object-fit: cover;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-}
+} */
 
-.carousel img.active {
+/* .carousel img.active {
   opacity: 1;
-}
+} */
 /* ==========================================================================
    Contact Me Section
    ========================================================================== */

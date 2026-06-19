@@ -18,7 +18,7 @@ export function CarouselContextProvider({
     setImageIndex((prev) => (prev + 1) % images.length);
   }, [images.length]);
   const decreaseIndex = useCallback(() => {
-    setImageIndex((prev) => (prev - 1) % images.length);
+    setImageIndex((prev) => Math.abs(prev - 1) % images.length);
   }, [images.length]);
   const value = useMemo(() => {
     return {
