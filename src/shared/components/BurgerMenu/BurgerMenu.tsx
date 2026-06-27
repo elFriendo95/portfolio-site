@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import "./BurgerMenu.css";
+import styles from "./BurgerMenu.module.css";
 import { useResize } from "../../../hooks/useResize";
 export function BurgerMenu() {
   const menuRef = useRef<HTMLDivElement>(null);
@@ -26,8 +26,8 @@ export function BurgerMenu() {
   return (
     <div style={{ zIndex: 100, position: "relative" }}>
       <button
-        id="btn-hamburger"
-        className="btn btn-primary"
+        className={`${styles["btn-hamburger"]} btn btn-primary`}
+        // className="btn btn-primary"
         onClick={() => setHamburgerOpen((prev) => !prev)}
       >
         ☰

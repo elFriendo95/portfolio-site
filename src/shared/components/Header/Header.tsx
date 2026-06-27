@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
+import { useThemeContext } from "../../../context/ThemeContext/useThemeContext";
 export function Header() {
+  const { toggleTheme } = useThemeContext();
   return (
     <header className="main-header">
+      <button onClick={toggleTheme}>Toggle theme</button>
       <nav>
         <ul className="flex flex-start">
           <li>
